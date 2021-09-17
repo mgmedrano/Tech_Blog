@@ -23,13 +23,13 @@ router.get('/:id', (req, res) => {
                         'id',
                         'title',
                         'content',
-                        'created_at'
+                        'created'
                     ]
                 },
 
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'created_at'],
+                    attributes: ['id', 'comment_text', 'created'],
                     include: {
                         model: Post,
                         attributes: ['title']
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
         })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this id' });
+                res.status(404).json({ message: 'No user id found' });
                 return;
             }
             res.json(dbUserData);
@@ -84,7 +84,7 @@ router.post('/login', (req, res) => {
             }
         }).then(dbUserData => {
             if (!dbUserData) {
-                res.status(400).json({ message: 'No user with that username!' });
+                res.status(400).json({ message: 'Username not found!' });
                 return;
             }
             const validPassword = dbUserData.checkPassword(req.body.password);
@@ -128,7 +128,7 @@ router.put('/:id', (req, res) => {
         })
         .then(dbUserData => {
             if (!dbUserData[0]) {
-                res.status(404).json({ message: 'No user found with this id' });
+                res.status(404).json({ message: 'No user id found' });
                 return;
             }
             res.json(dbUserData);
@@ -148,7 +148,7 @@ router.delete('/:id', (req, res) => {
         })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this id' });
+                res.status(404).json({ message: 'No user id found' });
                 return;
             }
             res.json(dbUserData);
