@@ -51,4 +51,4 @@ THEN they are able to view comments but are prompted to log in again before they
 
 ## Repository & Webpage:
 - GitHub Repository: https://github.com/mgmedrano/Tech_Blog
-- Heroku Website: 
+- Heroku Website: https://git.heroku.com/morning-lake-76516.git
