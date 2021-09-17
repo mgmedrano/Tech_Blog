@@ -15,13 +15,15 @@ Comment.init(
     // define columns
     comment_text: {
         type: DataTypes.STRING,
-    
-        //research how to validate if no data
+        validate: {
+        //
+            len: [  ]
+        }
     },
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        referemces: {
+        references: {
             model: 'user',
             key: 'id'
         }
